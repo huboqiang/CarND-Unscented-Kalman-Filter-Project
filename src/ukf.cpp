@@ -421,4 +421,6 @@ void UKF::UnscentedKalmanFilter(VectorXd &z_pred, VectorXd &z, MatrixXd &T, Matr
   }
   x_ += K*dz;
   P_ -= K*S*K.transpose();
+
+  double  NIS = dz.transpose() * S.inverse() * dz;
 }
